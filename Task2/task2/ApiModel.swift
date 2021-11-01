@@ -11,6 +11,7 @@ import Foundation
 struct ApiResultStruct: Codable {
     
     let list: [ApiResultStructItem]
+    let totalCount: Int
 }
 
 struct ApiResultStructItem: Codable {
