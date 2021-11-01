@@ -25,10 +25,6 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(customCellNib, forCellReuseIdentifier: "CustomTableViewCell")
         
         fetchApi(urlString: baseURL)
-        
-        //print(baseURL)
-
-        // Do any additional setup after loading the view.
     }
     
     func fetchApi(urlString: String){

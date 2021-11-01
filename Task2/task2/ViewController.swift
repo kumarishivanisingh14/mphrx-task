@@ -3,7 +3,7 @@ import WebKit
 
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,WKNavigationDelegate {
     
-    var apiResult: [ApiResultStruct] = []
+    var apiResult: ApiResultStruct?
     var isApiLoading: Bool = true
     var webviewContentHeight : CGFloat = 0.0
     
@@ -16,8 +16,8 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         
         let loader = self.loader()
         
-        fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
-        
+        fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?delay=2000&access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
+    
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -39,11 +39,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     
     @objc private func didPullToRefresh(){
-        fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
+        fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?delay=2000&access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
     }
     
     func fetchApi(urlString: String){
-        //apiResult.removeAll()
         if tableView.refreshControl?.isRefreshing == true{
             print("Refreshing data")
         }
@@ -58,7 +57,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                 return
             }
             do {
-                self.apiResult = try JSONDecoder().decode([ApiResultStruct].self,from:data)
+                self.apiResult = try JSONDecoder().decode(ApiResultStruct.self,from:data)
                 self.isApiLoading = false
                 
                 DispatchQueue.main.async {
@@ -75,14 +74,14 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return apiResult.count
+        return (apiResult?.list.count) ?? 2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(apiResult[indexPath.row].type == "Text"){
+        if(apiResult?.list[indexPath.row].type == "Text"){
             return 60
         }
-        else if (apiResult[indexPath.row].type == "WebView"){
+        else if (apiResult?.list[indexPath.row].type == "WebView"){
             if(webviewContentHeight != 0 ){
                 return webviewContentHeight
             }
@@ -112,13 +111,13 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if(apiResult[indexPath.row].type == "Text" || apiResult[indexPath.row].type == "ResizableCard"){
+        if(apiResult?.list[indexPath.row].type == "Text" || apiResult?.list[indexPath.row].type == "ResizableCard"){
             let cell = tableView.dequeueReusableCell(withIdentifier: "FixedTableCell",for: indexPath) as! FixedTableCell
-            cell.textLabel?.text = apiResult[indexPath.row].text
+            cell.textLabel?.text = apiResult?.list[indexPath.row].text
             cell.textLabel?.numberOfLines = 0
             cell.isUserInteractionEnabled = true
             
-            if apiResult[indexPath.row].type == "Text"{
+            if apiResult?.list[indexPath.row].type == "Text"{
                 cell.textLabel?.adjustsFontSizeToFitWidth = true
             }
             return cell
@@ -128,7 +127,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "WebviewTableCell", for: indexPath) as! WebviewTableCell
             
             cell.webview.navigationDelegate = self
-            cell.webview.load(URLRequest(url: URL(string: apiResult[indexPath.row].url ?? "https://www.google.com")!))
+            cell.webview.load(URLRequest(url: URL(string: apiResult?.list[indexPath.row].url ?? "https://www.google.com")!))
             cell.webview.scrollView.isScrollEnabled = false
             return cell
             
@@ -137,11 +136,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell tapped")
-        //performSegue(withIdentifier: "home", sender: self)
        
        let customVC = self.storyboard?.instantiateViewController(withIdentifier: "CustomViewController") as? CustomViewController
        
-       customVC?.baseURL = apiResult[indexPath.row].baseURL!
+       customVC?.baseURL = (apiResult?.list[indexPath.row].baseURL ?? "")!
        navigationController?.pushViewController(customVC!, animated: true)
        tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -153,9 +151,6 @@ extension ViewController {
         
         let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         indicator.hidesWhenStopped = true
-        
-        //indicator.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        
         alert.view.addSubview(indicator)
         self.present(alert, animated: true, completion: nil)
         return alert
