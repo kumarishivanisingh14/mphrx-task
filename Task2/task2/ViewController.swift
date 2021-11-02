@@ -64,14 +64,17 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                 self.listOfCells.append(contentsOf: self.apiResult!.list)
                 self.isApiLoading = false
                 
+                print("Loading more content")
+                
                 DispatchQueue.main.async {
                     self.tableView.refreshControl?.endRefreshing()
+                    self.tableView.tableFooterView = nil
                     self.tableView.reloadData()
                 }
             }catch{
                 print(error)
             }
-            }.resume()
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,12 +133,26 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
     }
     
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        
+        return footerView
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         
-        if (isApiLoading)  || (currentCount > totalCount) {
+        if (isApiLoading)  || (currentCount >= totalCount) {
             return
         }
+        
+        self.tableView.tableFooterView = createSpinnerFooter()
+        
         if (position > tableView.contentSize.height - 100 - scrollView.frame.size.height) {
                 isApiLoading = true
                 print("Fetch more data")
