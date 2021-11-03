@@ -11,14 +11,29 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     var webviewContentHeight : CGFloat = 0.0
     
     @IBOutlet weak var tableView: UITableView!
+    
+    let apiResultRepository = ApiResultRepository()
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        let path =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(path[0])
+
+
+        
         let loader = self.loader()
         
-        fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?delay=2000&access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
+        listOfCells = apiResultRepository.readRecord()!
+        self.currentCount += self.listOfCells.count
+        if(listOfCells.isEmpty) {
+
+            fetchApi(urlString: "https://api.json-generator.com/templates/AqlGwnzXxIHt/data?delay=2000&access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw")
+        } else {
+            isApiLoading = false
+            tableView.reloadData()
+        }
     
         tableView.dataSource = self
         tableView.delegate = self
@@ -62,6 +77,9 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                 self.currentCount += self.apiResult!.list.count
                 print(self.currentCount)
                 self.listOfCells.append(contentsOf: self.apiResult!.list)
+                self.apiResult?.list.forEach({ item in
+                    self.apiResultRepository.createRecord(result: item)
+                })
                 self.isApiLoading = false
                 
                 print("Loading more content")
@@ -88,7 +106,8 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         }
         else if (listOfCells[indexPath.row].type == "WebView"){
             if(webviewContentHeight != 0 ){
-                return webviewContentHeight
+                //return webviewContentHeight
+                return 200
             }
             else
             {
@@ -146,13 +165,11 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
-        
-        if (isApiLoading)  || (currentCount >= totalCount) {
+        if (isApiLoading)  && (currentCount > totalCount) {
             return
         }
         
         self.tableView.tableFooterView = createSpinnerFooter()
-        
         if (position > tableView.contentSize.height - 100 - scrollView.frame.size.height) {
                 isApiLoading = true
                 print("Fetch more data")
