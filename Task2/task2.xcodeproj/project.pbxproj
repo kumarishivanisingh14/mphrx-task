@@ -26,11 +26,17 @@
 		084DCD6F271F099200C4D2A2 /* FixedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084DCD6D271F099200C4D2A2 /* FixedTableCell.xib */; };
 		084DCD75271F0F5E00C4D2A2 /* WebviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084DCD73271F0F5E00C4D2A2 /* WebviewTableCell.swift */; };
 		084DCD76271F0F5E00C4D2A2 /* WebviewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084DCD74271F0F5E00C4D2A2 /* WebviewTableCell.xib */; };
+		086874F72739123700F58117 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086874F62739123700F58117 /* DataManager.swift */; };
 		089146D827312C3800250CE3 /* CDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 089146D627312C3800250CE3 /* CDModel.xcdatamodeld */; };
 		089146DB27312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */; };
 		089146DC27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */; };
 		089146DE27312EDC00250CE3 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DD27312EDC00250CE3 /* PersistentStorage.swift */; };
 		089146E02731311F00250CE3 /* ApiResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DF2731311F00250CE3 /* ApiResultRepository.swift */; };
+		08AC0D47273269D5002344E7 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D46273269D5002344E7 /* ViewControllerExtensions.swift */; };
+		08AC0D4927326ABC002344E7 /* WKViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4827326ABC002344E7 /* WKViewControllerExtensions.swift */; };
+		08AC0D4B27326BB5002344E7 /* LoaderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4A27326BB5002344E7 /* LoaderExtension.swift */; };
+		08AC0D4E27326DB9002344E7 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4D27326DB9002344E7 /* ApiUrl.swift */; };
+		08AC0D5127326EAA002344E7 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D5027326EAA002344E7 /* HttpUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,11 +80,17 @@
 		084DCD6D271F099200C4D2A2 /* FixedTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FixedTableCell.xib; sourceTree = "<group>"; };
 		084DCD73271F0F5E00C4D2A2 /* WebviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewTableCell.swift; sourceTree = "<group>"; };
 		084DCD74271F0F5E00C4D2A2 /* WebviewTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewTableCell.xib; sourceTree = "<group>"; };
+		086874F62739123700F58117 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		089146D727312C3800250CE3 /* CDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDModel.xcdatamodel; sourceTree = "<group>"; };
-		089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDApiResultStructItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDApiResultStructItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDApiResultStructItem+CoreDataClass.swift"; path = "task2/CDSupportFiles/CDApiResultStructItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDApiResultStructItem+CoreDataProperties.swift"; path = "task2/CDSupportFiles/CDApiResultStructItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		089146DD27312EDC00250CE3 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		089146DF2731311F00250CE3 /* ApiResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResultRepository.swift; sourceTree = "<group>"; };
+		08AC0D46273269D5002344E7 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		08AC0D4827326ABC002344E7 /* WKViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewControllerExtensions.swift; sourceTree = "<group>"; };
+		08AC0D4A27326BB5002344E7 /* LoaderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderExtension.swift; sourceTree = "<group>"; };
+		08AC0D4D27326DB9002344E7 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
+		08AC0D5027326EAA002344E7 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,23 +141,21 @@
 		084DCD31271DF34100C4D2A2 /* task2 */ = {
 			isa = PBXGroup;
 			children = (
-				089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */,
-				089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */,
-				084DCD70271F0ECF00C4D2A2 /* custom cells */,
+				08AC0D412732685B002344E7 /* ApiDataModel */,
+				08AC0D3F273267CA002344E7 /* CDSupportFiles */,
+				08AC0D4C27326DA1002344E7 /* Constants */,
+				084DCD70271F0ECF00C4D2A2 /* CustomCells */,
+				086874F82739407500F58117 /* Manager */,
+				08AC0D4F27326E8F002344E7 /* Utilites */,
+				08AC0D442732690B002344E7 /* Repository */,
+				08AC0D4027326816002344E7 /* Controllers */,
 				084DCD32271DF34100C4D2A2 /* AppDelegate.swift */,
 				084DCD34271DF34100C4D2A2 /* SceneDelegate.swift */,
-				084DCD36271DF34100C4D2A2 /* ViewController.swift */,
 				089146D627312C3800250CE3 /* CDModel.xcdatamodeld */,
 				084DCD38271DF34100C4D2A2 /* Main.storyboard */,
 				084DCD3B271DF34800C4D2A2 /* Assets.xcassets */,
 				084DCD3D271DF34800C4D2A2 /* LaunchScreen.storyboard */,
 				084DCD40271DF34800C4D2A2 /* Info.plist */,
-				081433782721D68100CCE7F3 /* ApiModel.swift */,
-				08120FF72729387B00A2F1B1 /* CustomTableViewCell.swift */,
-				08120FF82729387B00A2F1B1 /* CustomTableViewCell.xib */,
-				08120FFB272938DF00A2F1B1 /* CustomViewController.swift */,
-				089146DD27312EDC00250CE3 /* PersistentStorage.swift */,
-				089146DF2731311F00250CE3 /* ApiResultRepository.swift */,
 			);
 			path = task2;
 			sourceTree = "<group>";
@@ -167,17 +177,105 @@
 			path = task2UITests;
 			sourceTree = "<group>";
 		};
-		084DCD70271F0ECF00C4D2A2 /* custom cells */ = {
+		084DCD70271F0ECF00C4D2A2 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				084DCD6C271F099200C4D2A2 /* FixedTableCell.swift */,
+				08AC0D43273268EB002344E7 /* SecondTableCell */,
+				08AC0D42273268B3002344E7 /* FirstTableCell */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		086874F82739407500F58117 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				086874F62739123700F58117 /* DataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		08AC0D3F273267CA002344E7 /* CDSupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				089146DD27312EDC00250CE3 /* PersistentStorage.swift */,
+				089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */,
+				089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */,
+			);
+			path = CDSupportFiles;
+			sourceTree = "<group>";
+		};
+		08AC0D4027326816002344E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08AC0D4527326934002344E7 /* Extensions */,
+				08120FFB272938DF00A2F1B1 /* CustomViewController.swift */,
+				084DCD36271DF34100C4D2A2 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		08AC0D412732685B002344E7 /* ApiDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				081433782721D68100CCE7F3 /* ApiModel.swift */,
+			);
+			path = ApiDataModel;
+			sourceTree = "<group>";
+		};
+		08AC0D42273268B3002344E7 /* FirstTableCell */ = {
+			isa = PBXGroup;
+			children = (
 				084DCD6D271F099200C4D2A2 /* FixedTableCell.xib */,
 				084DCD73271F0F5E00C4D2A2 /* WebviewTableCell.swift */,
 				084DCD74271F0F5E00C4D2A2 /* WebviewTableCell.xib */,
 				084DCD68271EDB0A00C4D2A2 /* DynamicTableCell.swift */,
 				084DCD69271EDB0A00C4D2A2 /* DynamicTableCell.xib */,
+				084DCD6C271F099200C4D2A2 /* FixedTableCell.swift */,
 			);
-			path = "custom cells";
+			path = FirstTableCell;
+			sourceTree = "<group>";
+		};
+		08AC0D43273268EB002344E7 /* SecondTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				08120FF72729387B00A2F1B1 /* CustomTableViewCell.swift */,
+				08120FF82729387B00A2F1B1 /* CustomTableViewCell.xib */,
+			);
+			path = SecondTableCell;
+			sourceTree = "<group>";
+		};
+		08AC0D442732690B002344E7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				089146DF2731311F00250CE3 /* ApiResultRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		08AC0D4527326934002344E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08AC0D46273269D5002344E7 /* ViewControllerExtensions.swift */,
+				08AC0D4827326ABC002344E7 /* WKViewControllerExtensions.swift */,
+				08AC0D4A27326BB5002344E7 /* LoaderExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08AC0D4C27326DA1002344E7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				08AC0D4D27326DB9002344E7 /* ApiUrl.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		08AC0D4F27326E8F002344E7 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				08AC0D5027326EAA002344E7 /* HttpUtility.swift */,
+			);
+			path = Utilites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,18 +414,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				08120FF92729387B00A2F1B1 /* CustomTableViewCell.swift in Sources */,
+				086874F72739123700F58117 /* DataManager.swift in Sources */,
+				08AC0D4B27326BB5002344E7 /* LoaderExtension.swift in Sources */,
 				084DCD75271F0F5E00C4D2A2 /* WebviewTableCell.swift in Sources */,
 				089146D827312C3800250CE3 /* CDModel.xcdatamodeld in Sources */,
 				084DCD37271DF34100C4D2A2 /* ViewController.swift in Sources */,
 				081433792721D68100CCE7F3 /* ApiModel.swift in Sources */,
+				08AC0D4E27326DB9002344E7 /* ApiUrl.swift in Sources */,
 				089146DB27312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift in Sources */,
 				084DCD33271DF34100C4D2A2 /* AppDelegate.swift in Sources */,
 				089146E02731311F00250CE3 /* ApiResultRepository.swift in Sources */,
+				08AC0D4927326ABC002344E7 /* WKViewControllerExtensions.swift in Sources */,
 				084DCD6E271F099200C4D2A2 /* FixedTableCell.swift in Sources */,
 				089146DC27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift in Sources */,
 				08120FFC272938DF00A2F1B1 /* CustomViewController.swift in Sources */,
+				08AC0D5127326EAA002344E7 /* HttpUtility.swift in Sources */,
 				084DCD6A271EDB0A00C4D2A2 /* DynamicTableCell.swift in Sources */,
 				084DCD35271DF34100C4D2A2 /* SceneDelegate.swift in Sources */,
+				08AC0D47273269D5002344E7 /* ViewControllerExtensions.swift in Sources */,
 				089146DE27312EDC00250CE3 /* PersistentStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
