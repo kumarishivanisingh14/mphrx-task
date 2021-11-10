@@ -31,12 +31,13 @@
 		089146DB27312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */; };
 		089146DC27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */; };
 		089146DE27312EDC00250CE3 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DD27312EDC00250CE3 /* PersistentStorage.swift */; };
-		089146E02731311F00250CE3 /* ApiResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089146DF2731311F00250CE3 /* ApiResultRepository.swift */; };
 		08AC0D47273269D5002344E7 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D46273269D5002344E7 /* ViewControllerExtensions.swift */; };
 		08AC0D4927326ABC002344E7 /* WKViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4827326ABC002344E7 /* WKViewControllerExtensions.swift */; };
 		08AC0D4B27326BB5002344E7 /* LoaderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4A27326BB5002344E7 /* LoaderExtension.swift */; };
 		08AC0D4E27326DB9002344E7 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D4D27326DB9002344E7 /* ApiUrl.swift */; };
 		08AC0D5127326EAA002344E7 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC0D5027326EAA002344E7 /* HttpUtility.swift */; };
+		08D396A5273A70FF007A95FB /* CDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D396A4273A70FF007A95FB /* CDRepository.swift */; };
+		08D396A7273AAC13007A95FB /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D396A6273AAC13007A95FB /* NetworkRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,12 +86,13 @@
 		089146D927312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDApiResultStructItem+CoreDataClass.swift"; path = "task2/CDSupportFiles/CDApiResultStructItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		089146DA27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDApiResultStructItem+CoreDataProperties.swift"; path = "task2/CDSupportFiles/CDApiResultStructItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		089146DD27312EDC00250CE3 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
-		089146DF2731311F00250CE3 /* ApiResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResultRepository.swift; sourceTree = "<group>"; };
 		08AC0D46273269D5002344E7 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		08AC0D4827326ABC002344E7 /* WKViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewControllerExtensions.swift; sourceTree = "<group>"; };
 		08AC0D4A27326BB5002344E7 /* LoaderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderExtension.swift; sourceTree = "<group>"; };
 		08AC0D4D27326DB9002344E7 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 		08AC0D5027326EAA002344E7 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		08D396A4273A70FF007A95FB /* CDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRepository.swift; sourceTree = "<group>"; };
+		08D396A6273AAC13007A95FB /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +143,7 @@
 		084DCD31271DF34100C4D2A2 /* task2 */ = {
 			isa = PBXGroup;
 			children = (
-				08AC0D412732685B002344E7 /* ApiDataModel */,
+				08AC0D412732685B002344E7 /* Model */,
 				08AC0D3F273267CA002344E7 /* CDSupportFiles */,
 				08AC0D4C27326DA1002344E7 /* Constants */,
 				084DCD70271F0ECF00C4D2A2 /* CustomCells */,
@@ -214,12 +216,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		08AC0D412732685B002344E7 /* ApiDataModel */ = {
+		08AC0D412732685B002344E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				081433782721D68100CCE7F3 /* ApiModel.swift */,
 			);
-			path = ApiDataModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		08AC0D42273268B3002344E7 /* FirstTableCell */ = {
@@ -247,7 +249,8 @@
 		08AC0D442732690B002344E7 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				089146DF2731311F00250CE3 /* ApiResultRepository.swift */,
+				08D396A4273A70FF007A95FB /* CDRepository.swift */,
+				08D396A6273AAC13007A95FB /* NetworkRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D396A7273AAC13007A95FB /* NetworkRepository.swift in Sources */,
 				08120FF92729387B00A2F1B1 /* CustomTableViewCell.swift in Sources */,
 				086874F72739123700F58117 /* DataManager.swift in Sources */,
 				08AC0D4B27326BB5002344E7 /* LoaderExtension.swift in Sources */,
@@ -423,12 +427,12 @@
 				08AC0D4E27326DB9002344E7 /* ApiUrl.swift in Sources */,
 				089146DB27312E5300250CE3 /* CDApiResultStructItem+CoreDataClass.swift in Sources */,
 				084DCD33271DF34100C4D2A2 /* AppDelegate.swift in Sources */,
-				089146E02731311F00250CE3 /* ApiResultRepository.swift in Sources */,
 				08AC0D4927326ABC002344E7 /* WKViewControllerExtensions.swift in Sources */,
 				084DCD6E271F099200C4D2A2 /* FixedTableCell.swift in Sources */,
 				089146DC27312E5300250CE3 /* CDApiResultStructItem+CoreDataProperties.swift in Sources */,
 				08120FFC272938DF00A2F1B1 /* CustomViewController.swift in Sources */,
 				08AC0D5127326EAA002344E7 /* HttpUtility.swift in Sources */,
+				08D396A5273A70FF007A95FB /* CDRepository.swift in Sources */,
 				084DCD6A271EDB0A00C4D2A2 /* DynamicTableCell.swift in Sources */,
 				084DCD35271DF34100C4D2A2 /* SceneDelegate.swift in Sources */,
 				08AC0D47273269D5002344E7 /* ViewControllerExtensions.swift in Sources */,

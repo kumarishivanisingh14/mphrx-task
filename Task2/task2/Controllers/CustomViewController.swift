@@ -21,9 +21,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         
         let customCellNib = UINib(nibName: "CustomTableViewCell", bundle: nil)
-        
         tableView.register(customCellNib, forCellReuseIdentifier: "CustomTableViewCell")
-        
         fetchApi(urlString: baseURL)
     }
     
@@ -34,12 +32,10 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         else {
             print("Fetching data")
-            
         }
         
         let finalURL = urlString + "?access_token=hapmwass5t9uis8jenssbqz8ee03vy5zc88hj5iw"
-        
-        print(finalURL)
+        //print(finalURL)
         
         let url = URL(string: finalURL)!
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -49,7 +45,6 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             do {
                 self.result = try JSONDecoder().decode([CellResultStruct].self,from:data)
-                
                 DispatchQueue.main.async {
                     self.tableView.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
@@ -57,19 +52,15 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }catch{
                 print(error)
             }
-
-            }.resume()
-        
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return result.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return UITableView.automaticDimension
-            
     }
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

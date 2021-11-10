@@ -10,7 +10,6 @@ import UIKit
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return (listOfCells.count)
     }
     
@@ -34,7 +33,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if(listOfCells[indexPath.row].type == "Text" || listOfCells[indexPath.row].type == "ResizableCard"){
             let cell = tableView.dequeueReusableCell(withIdentifier: "FixedTableCell",for: indexPath) as! FixedTableCell
             cell.textLabel?.text = listOfCells[indexPath.row].text
@@ -53,7 +51,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.webview.load(URLRequest(url: URL(string: listOfCells[indexPath.row].url ?? "https://www.google.com")!))
             cell.webview.scrollView.isScrollEnabled = false
             return cell
-            
         }
     }
     

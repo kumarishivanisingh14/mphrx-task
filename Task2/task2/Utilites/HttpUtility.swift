@@ -9,7 +9,6 @@ import Foundation
 
 class HttpUtility {
     static let shared = HttpUtility()
-    let apiResultRepository = ApiResultRepository()
     
     private init(){}
     
@@ -19,16 +18,12 @@ class HttpUtility {
     func fetchApi(urlString: String, completion: @escaping (Int, [ApiResultStructItem]) -> Void) {
         let url = URL(string: urlString)!
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data, error == nil else {
+            guard let responseData = data, error == nil else {
                 print("Something went wrong")
                 return
             }
             do {
-                self.apiResult = try JSONDecoder().decode(ApiResultStruct.self,from:data)
-                self.apiResult?.list.forEach({ item in
-                    self.apiResultRepository.createRecord(result: item)
-                })
-                
+                self.apiResult = try JSONDecoder().decode(ApiResultStruct.self,from: responseData)
                 completion(self.apiResult!.totalCount, self.apiResult!.list)
                 self.isApiLoading = false
             }catch{

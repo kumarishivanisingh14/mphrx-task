@@ -11,26 +11,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let apiResultRepository = ApiResultRepository()
+    let cdRepository = CDResultRepository()
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(path[0])
-        
         let loader = self.loader()
-        
-        //listOfCells = apiResultRepository.readSomeRecord(count: currentCount)!
-        //self.currentCount += self.listOfCells.count
-        
-//        if(listOfCells.isEmpty) {
-//            fetchApi(urlString: ApiUrl.firstApi.rawValue)
-//        } else {
-//            isApiLoading = false
-//            tableView.reloadData()
-//        }
         
         fetchApi(urlString: ApiUrl.firstApi.rawValue)
         
@@ -61,7 +49,6 @@ class ViewController: UIViewController {
         if(isApiLoading){
             return
         }
-
         if tableView.refreshControl?.isRefreshing == true{
             print("Refreshing data")
         }
@@ -71,7 +58,7 @@ class ViewController: UIViewController {
         
         self.isApiLoading = true
         DataManager.shared.fetchData(urlString: ApiUrl.firstApi.rawValue, currentCount: currentCount) { tc, templist in
-            self.totalCount = tc
+            //self.totalCount = tc
             self.currentCount += templist.count
             self.listOfCells.append(contentsOf: templist)
             self.isApiLoading = false
